@@ -1,0 +1,31 @@
+assets : chứa tài nguyên ứng dụng
+components: chứa components của ứng dụng (header,sidebar...), những thành phần trong trang
+pages: components đóng vai trò là 1 trang web (cao hơn component)
+redux:
+service: chứa những nghiệp vụ liên quan đến backEnd
+template: cấp độ lớn hơn cả pages
+util: chứa thư mục dùng chung hệ thống
+
+Cài đặt thư viện
+npm i redux
+npm i react-redux
+npm i styled-components
+npm i axios
+npm i react-router-dom
+npm i redux-saga
+npm i redux-thunk
+
+react-router-dom
+exact path="": tránh bị trùng lặp
+Switch:
+
+Header: không phải là 1 trang web, chỉ là 1 t` phần của trang => components/Home/header.js
+
+render client side: 
+1) tốc độ nhanh
+2) dùng js render
+
+props.match: truyền, lấy tham số từ đường dẫn
+
+Redirect chuyển hướng ở phần render
+history.push() chuyển hướng ở phần chức năng
