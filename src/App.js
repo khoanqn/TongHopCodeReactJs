@@ -10,6 +10,7 @@ import pagenotfound from "./pages/PageNotFoung/pagenotfound";
 import Profile from "./pages/Profile/Profile";
 import TodolistRFC from "./pages/ToDoList/TodolistRFC";
 import TodolistRCC from "./pages/ToDoList/TodolistRCC";
+import ToDoListRedux from "./pages/ToDoList/ToDoListRedux";
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/todolistrfc" component={TodolistRFC} />
         <Route exact path="/todolistrcc" component={TodolistRCC} />
+        <Route exact path="/todolistredux" component={ToDoListRedux} />
         {/* Không cho người dùng nhập tùm lum */}
         <Route path="*" component={pagenotfound}/>
         <Route exact path="/detail/:id" component={Detail} />

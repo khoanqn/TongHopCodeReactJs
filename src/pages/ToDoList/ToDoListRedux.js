@@ -1,9 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { GET_TASK_API } from "../../redux/constants/ToDoListConstant";
 
-export default function TodolistRFC(props) {
+export default function ToDoListRedux() {
+  const dispatch = useDispatch();
+  //Lấy taskList từ reducer về
+  const { taskList } = useSelector((state) => state.ToDoListReducer);
+  console.log("task list", taskList);
   const [state, setState] = useState({
-    taskList: [],
+    // taskList: [],//taskList dc lấy từ reducer thay cho setstate
     values: {
       taskName: "",
     },
@@ -15,7 +21,7 @@ export default function TodolistRFC(props) {
   //hàm hiển thị sau khi get API
   const renderTaskToDo = () => {
     return (
-      state.taskList
+      taskList
         //nếu task chưa hoàn thành
         .filter((item) => !item.status)
         .map((item, index) => {
@@ -52,7 +58,7 @@ export default function TodolistRFC(props) {
   };
   const renderTaskToDoDone = () => {
     return (
-      state.taskList
+      taskList
         //nếu task da hoàn thành
         .filter((item) => item.status)
         .map((item, index) => {
@@ -120,9 +126,13 @@ export default function TodolistRFC(props) {
 
     promise.then((result) => {
       //Nếu kq trả về thành công => setState
-      console.log(result);
-      setState({
-        ...state,
+      //Thay vì setState thì dispatch nó lên redux
+      //   setState({
+      //     ...state,
+      //     taskList: result.data,
+      //   });
+      dispatch({
+        type: GET_TASK_API,
         taskList: result.data,
       });
     });
@@ -192,7 +202,7 @@ export default function TodolistRFC(props) {
       method: "PUT",
     });
     promise.then((result) => {
-      alert("result.data");
+      alert(result.data);
       getTaskList();
     });
     promise.catch((error) => {
@@ -219,7 +229,13 @@ export default function TodolistRFC(props) {
           />
         </div>
         <div>
-          <button onClick={addTask} type="button" className="btn btn-success mr-2">Add Task</button>
+          <button
+            onClick={addTask}
+            type="button"
+            className="btn btn-success mr-2"
+          >
+            Add Task
+          </button>
           <button className="btn btn-danger mr-2">Delete Task</button>
           <button className="btn btn-primary mr-2">Edit Task</button>
         </div>

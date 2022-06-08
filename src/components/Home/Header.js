@@ -55,7 +55,10 @@ export default function Header() {
               </NavLink>
               <NavLink className="dropdown-item" to="/todolistrcc">
                 ToDoListRCC
-              </NavLink>              
+              </NavLink>            
+              <NavLink className="dropdown-item" to="/todolistredux">
+                ToDoListRedux
+              </NavLink>             
             </div>
           </li>
         </ul>
