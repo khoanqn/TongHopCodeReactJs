@@ -49,16 +49,19 @@ export default function Header() {
             >
               Bài tập
             </NavLink>
-            <div className="dropdown-menu" aria-labelledby="dropdownId">          
+            <div className="dropdown-menu" aria-labelledby="dropdownId">
+              <NavLink className="dropdown-item" to="/demoprops">
+                DemoProps
+              </NavLink>
               <NavLink className="dropdown-item" to="/todolistrfc">
                 ToDoListRFC
               </NavLink>
               <NavLink className="dropdown-item" to="/todolistrcc">
                 ToDoListRCC
-              </NavLink>            
+              </NavLink>
               <NavLink className="dropdown-item" to="/todolistredux">
                 ToDoListRedux
-              </NavLink>             
+              </NavLink>
             </div>
           </li>
         </ul>
